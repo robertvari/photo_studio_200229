@@ -1,8 +1,14 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'home.html')
+    context = {
+        "title": "Wellcome on my page!",
+        "message": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A debitis deleniti inventore numquam.",
+        "image": "https://source.unsplash.com/1600x900/?nature,water"
+    }
+
+    return render(request, 'home.html', context)
 
 
 def gallery(request):

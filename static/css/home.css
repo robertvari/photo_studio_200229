@@ -1,0 +1,17 @@
+.home_container{
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center_text{
+    background-color: rgba(0, 0, 0, 0.65);
+    width: 100%;
+    padding: 100px;
+}
