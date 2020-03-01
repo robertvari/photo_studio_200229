@@ -1,13 +1,25 @@
 a{
-    color: rgb(27, 149, 224);
+    color: #c72d66;
     text-decoration: none;
 }
 
 a:hover{
     color: white;
+    transition: color 0.3s;
 }
 
 .menu {
     background-color: #203c58;
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-size: 25px;
+}
+
+.menu_item{
+    margin: 0 10px;
 }

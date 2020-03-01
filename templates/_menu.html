@@ -1,6 +1,10 @@
 <div class="menu">
-    <a href="{% url 'home' %}"><i class="fas fa-camera-retro"></i> Home</a>
-    <a href="{% url 'gallery' %}"><i class="far fa-images"></i> Gallery</a>
-    <a href="{% url 'contact' %}"><i class="fas fa-envelope-open-text"></i> Contact</a>
-    <a href="{% url 'about' %}"><i class="fas fa-address-card"></i> About</a>
+    <a href="{% url 'home' %}" class="logo"><i class="fas fa-camera-retro"></i> Home</a>
+
+    <div>
+        <a href="{% url 'gallery' %}" class="menu_item"><i class="far fa-images"></i> Gallery</a>
+        <a href="{% url 'contact' %}" class="menu_item"><i class="fas fa-envelope-open-text"></i> Contact</a>
+        <a href="{% url 'about' %}" class="menu_item"><i class="fas fa-address-card"></i> About</a>
+    </div>
+
 </div>
