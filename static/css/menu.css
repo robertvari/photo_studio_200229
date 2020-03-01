@@ -1,0 +1,13 @@
+a{
+    color: rgb(27, 149, 224);
+    text-decoration: none;
+}
+
+a:hover{
+    color: white;
+}
+
+.menu {
+    background-color: #203c58;
+    padding: 10px;
+}

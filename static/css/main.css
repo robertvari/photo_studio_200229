@@ -1,14 +1,7 @@
+@import "menu.css";
+
 body{
     background-color: #15202B;
     color: white;
     font-family: 'Spartan';
-}
-
-a{
-    color: rgb(27, 149, 224);
-    text-decoration: none;
-}
-
-a:hover{
-    color: white;
 }
