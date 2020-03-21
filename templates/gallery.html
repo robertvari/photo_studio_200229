@@ -3,12 +3,18 @@
 {% block title%}Galery{% endblock title%}
 
 {% block body %}
+
     <div class="category_menu">
         {% for category in categories %}
             <a href="">{{ category }}</a>
         {% endfor %}
     </div>
 
-    <h1>Gallery page</h1>
+    <div class="thumbnail_layout">
+        {% for photo in photos %}
+            <img src={{ photo }} alt="" style="width: 200px">
+        {% endfor %}
+
+    </div>
 {% endblock body %}
 
