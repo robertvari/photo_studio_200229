@@ -6,7 +6,7 @@
 
     <div class="category_menu">
         {% for category in categories %}
-            <a href="">{{ category }}</a>
+            <a href="/gallery/?category={{ category.title }}">{{ category }}</a>
         {% endfor %}
     </div>
 
@@ -14,7 +14,7 @@
 
         {% for photo in photos %}
             <div class="thumbnail_item" style="background-image: url({{ photo.image }})">
-                <div class="thumbnail_header">{{ photo.title }}</div>
+                <div class="thumbnail_header">{{ photo.title }} {{ photo.category }}</div>
                 <div class="thumbnail_footer">{{ photo.uploaded|date:"b. d." }}</div>
             </div>
         {% endfor %}
