@@ -3,6 +3,12 @@
 {% block title%}Galery{% endblock title%}
 
 {% block body %}
+    <div class="category_menu">
+        {% for category in categories %}
+            <a href="">{{ category }}</a>
+        {% endfor %}
+    </div>
+
     <h1>Gallery page</h1>
 {% endblock body %}
 

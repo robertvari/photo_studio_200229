@@ -1,0 +1,10 @@
+.category_menu{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.21);
+    margin-bottom: 10px;
+}
+
+.category_menu a{
+    padding: 10px;
+}

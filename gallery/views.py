@@ -1,5 +1,10 @@
 from django.shortcuts import render
 
+from .models import Category
+
 
 def gallery(request):
-    return render(request, 'gallery.html')
+    context = {
+        "categories": Category.objects.all()
+    }
+    return render(request, 'gallery.html', context)
