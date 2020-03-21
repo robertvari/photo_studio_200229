@@ -1,11 +1,16 @@
 from django.shortcuts import render
 
+from .models import HomeMessage
+
 
 def home(request):
+    message_object = HomeMessage.objects.all()
+
+    if message_object:
+        message_object = message_object[0]
+
     context = {
-        "title": "Wellcome on my page!",
-        "message": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A debitis deleniti inventore numquam.",
-        "image": "https://source.unsplash.com/1600x900/?nature,water"
+        "object": message_object
     }
 
     return render(request, 'home.html', context)
