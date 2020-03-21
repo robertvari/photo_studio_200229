@@ -1,7 +1,17 @@
+from datetime import datetime
+
+
 def create_gallery(num=10):
-    image_links = []
+    photo_list = []
 
     for index in range(num):
-        image_links.append(f'https://source.unsplash.com/500x500/?nature{index}')
+        photo_list.append(
+            {
+                "title": "Photo Title",
+                "image": f'https://source.unsplash.com/500x500/?nature{index}',
+                "comment": "Photo comment",
+                "uploaded": datetime.now()
+            }
+        )
 
-    return image_links
+    return photo_list

@@ -6,7 +6,7 @@ from utilities.gallery_generator import create_gallery
 
 def gallery(request):
     # temp function for creating random images
-    photos = create_gallery(num=100)
+    photos = create_gallery(num=20)
 
     context = {
         "categories": Category.objects.all(),
