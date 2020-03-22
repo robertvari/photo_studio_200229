@@ -1,0 +1,33 @@
+.details_layout{
+    padding: 20px;
+    display: flex;
+}
+
+.detail_photo{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.photo_details_text_layout{
+    position: sticky;
+    top: 0px;
+}
+
+.photo_title{
+    font-size: 25px;
+    color: #c72d66;
+    margin-bottom: 20px;
+}
+
+.comment{
+    padding: 0 30px;
+}
+
+.date{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}

@@ -1,6 +1,8 @@
 @import "menu.css";
 @import "home.css";
 @import "gallery.css";
+@import "photo_details.css";
+
 
 *{
     margin: 0;
@@ -12,4 +14,8 @@ body{
     background-color: #15202B;
     color: white;
     font-family: 'Spartan';
+}
+
+.content_box{
+    padding-top: 51px;
 }

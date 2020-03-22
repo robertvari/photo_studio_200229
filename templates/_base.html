@@ -15,8 +15,11 @@
 <body>
     {% include '_menu.html' %}
 
-    {% block body %}
-    {% endblock body %}
+    <div class="content_box">
+        {% block body %}
+        {% endblock body %}
+    </div>
+
 
     {% block footer %}
     {% endblock footer %}

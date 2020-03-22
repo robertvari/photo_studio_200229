@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+
+{% block title%}Photo Details{% endblock title%}
+
+{% block body %}
+    <div class="details_layout">
+        <img src={{ photo.image }} alt="" class="detail_photo">
+
+        <div class="photo_details_text_layout">
+            <div class="photo_title">{{ photo.title }}</div>
+            <div class="comment">{{ photo.comment }}</div>
+            <div class="date">{{ photo.uploaded }}</div>
+        </div>
+    </div>
+{% endblock body %}

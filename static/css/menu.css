@@ -9,11 +9,14 @@ a:hover{
 }
 
 .menu {
+    position: fixed;
+    width: 100%;
     background-color: #203c58;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 10;
 }
 
 .logo{
