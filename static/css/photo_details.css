@@ -1,6 +1,8 @@
 .details_layout{
     padding: 20px;
-    display: flex;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: auto 300px;
 }
 
 .detail_photo{
