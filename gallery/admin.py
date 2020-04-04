@@ -10,4 +10,5 @@ class PhotoAdmin(admin.ModelAdmin):
     list_editable = ["category"]
     search_fields = ["title", "comment"]
 
+
 admin.site.register(Photo, PhotoAdmin)

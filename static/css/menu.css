@@ -26,3 +26,7 @@ a:hover{
 .menu_item{
     margin: 0 10px;
 }
+
+.active{
+    color: white;
+}

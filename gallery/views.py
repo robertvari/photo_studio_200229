@@ -1,27 +1,32 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 
 from .models import Category, Photo
-from utilities.gallery_generator import create_gallery
-
-# temp function for creating random images
-# photos = create_gallery(num=20)
 
 
-def gallery(request):
-    photo_list = Photo.objects.all()
+class GalleryView(ListView):
+    model = Photo
+    template_name = "gallery.html"
+    context_object_name = "photos"
 
-    category = request.GET.get("category")
-    if category:
-        photo_list = [i for i in photo_list if i.category.title == category]
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({
+            "categories": Category.objects.all(),
+        })
+        return context
+    
+    def get_queryset(self):
+        category_name = self.request.GET.get("category")
+        photos = Photo.objects.all()
 
-    context = {
-        "categories": Category.objects.all(),
-        "photos": photo_list
-    }
-    return render(request, 'gallery.html', context)
+        if category_name:
+            photos = Photo.objects.filter(category__title=category_name)
+
+        return photos
 
 
-def photo_details_view(request, pk):
-    photo = Photo.objects.get(id=pk)
-
-    return render(request, 'photo_details.html', {"photo": photo})
+class PhotoDetailsView(DetailView):
+    model = Photo
+    template_name = "photo_details.html"
+    context_object_name = "photo"

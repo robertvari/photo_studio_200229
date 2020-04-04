@@ -1,6 +1,7 @@
 from django.db import models
-from django.db.models.signals import post_delete
-import os
+from django.db.models.signals import post_delete, pre_save
+from django.utils.text import slugify
+import os, time
 from PIL import Image
 
 
@@ -13,6 +14,9 @@ class Category(models.Model):
 
 class Photo(models.Model):
     title = models.CharField(max_length=200)
+
+    slug = models.SlugField(max_length=200, blank=True)
+
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     image = models.ImageField(upload_to="media")
@@ -54,3 +58,11 @@ def photo_cleanup(sender, instance, **kwargs):
 
 
 post_delete.connect(photo_cleanup, sender=Photo)
+
+
+def slug_generator(sender, instance, **kwargs):
+    if not instance.slug:
+        instance.slug = f"{slugify(instance.title)}-{int(time.time())}"
+
+
+pre_save.connect(slug_generator, sender=Photo)

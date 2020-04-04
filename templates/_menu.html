@@ -1,11 +1,12 @@
 <div class="menu">
-    <a href="{% url 'home' %}" class="logo"><i class="fas fa-camera-retro"></i> Home</a>
+    <a href="{% url 'home' %}" class="logo {% if request.get_full_path == '/' %}active{% endif %}"><i class="fas fa-camera-retro"></i> Home</a>
 
     <div>
-        <a href="{% url 'gallery' %}" class="menu_item"><i class="far fa-images"></i> Gallery</a>
-        <a href="{% url 'services' %}" class="menu_item"><i class="far fa-images"></i> Servies</a>
-        <a href="{% url 'about' %}" class="menu_item"><i class="fas fa-address-card"></i> About</a>
-        <a href="{% url 'contact' %}" class="menu_item"><i class="fas fa-envelope-open-text"></i> Contact</a>
+        <a href="{% url 'gallery' %}" class="menu_item {% if request.get_full_path == '/gallery/' %}active{% endif %}"><i class="far fa-images"></i> Gallery</a>
+
+        <a href="{% url 'services' %}" class="menu_item {% if request.get_full_path == '/services/' %}active{% endif %}"><i class="far fa-images"></i> Servies</a>
+        <a href="{% url 'about' %}" class="menu_item {% if request.get_full_path == '/about/' %}active{% endif %}"><i class="fas fa-address-card"></i> About</a>
+        <a href="{% url 'contact' %}" class="menu_item {% if request.get_full_path == '/contact/' %}active{% endif %}"><i class="fas fa-envelope-open-text"></i> Contact</a>
     </div>
 
 </div>

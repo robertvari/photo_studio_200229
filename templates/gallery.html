@@ -6,14 +6,14 @@
 
     <div class="category_menu">
         {% for category in categories %}
-            <a href="/gallery/?category={{ category.title }}">{{ category }}</a>
+            <a href="/gallery/?category={{ category.title }}" class="{% if request.GET.category == category.title %}active{% endif %}">{{ category }}</a>
         {% endfor %}
     </div>
 
     <div class="thumbnail_layout">
 
         {% for photo in photos %}
-            <a href="/gallery/{{ photo.pk }}/" class="thumbnail_item" style="background-image: url({{ photo.image.url }})">
+            <a href="/gallery/{{ photo.slug }}/" class="thumbnail_item" style="background-image: url({{ photo.image.url }})">
                 <div class="thumbnail_content_layout">
                     <div class="thumbnail_header">{{ photo.title }} {{ photo.pk }}</div>
                     <div class="thumbnail_footer">{{ photo.uploaded|date:"b. d." }}</div>
