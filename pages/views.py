@@ -4,6 +4,9 @@ import random
 from .models import HomeMessage
 from gallery.models import Photo
 
+
+from .forms import ContactForm
+
 def home(request):
     message_object = HomeMessage.objects.all()
 
@@ -23,7 +26,8 @@ def services(request):
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    form = ContactForm()
+    return render(request, 'contact.html', {"form": form})
 
 
 def about(request):
