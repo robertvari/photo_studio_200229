@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import random
 
 from .models import HomeMessage
@@ -26,8 +26,24 @@ def services(request):
 
 
 def contact(request):
-    form = ContactForm()
+    if request.method == "GET":
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            email = form.cleaned_data["email"]
+            subject = form.cleaned_data["subject"]
+            message = form.cleaned_data["message"]
+
+            print(name, email, subject, message)
+            return redirect("contact_sent")
+
     return render(request, 'contact.html', {"form": form})
+
+
+def contact_sent(request):
+    return render(request, 'email_sent.html')
 
 
 def about(request):
