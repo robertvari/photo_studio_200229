@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, FormView
 import random
 
 from .models import HomeMessage
@@ -7,44 +8,47 @@ from gallery.models import Photo
 
 from .forms import ContactForm
 
-def home(request):
-    message_object = HomeMessage.objects.all()
 
-    if message_object:
-        message_object = message_object[0]
+class HomeView(TemplateView):
+    template_name = "home.html"
 
-    context = {
-        "object": message_object,
-        "photo": random.choice(Photo.objects.all())
-    }
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
 
-    return render(request, 'home.html', context)
+        message_object = HomeMessage.objects.all()
+        if message_object:
+            message_object = message_object[0]
 
+        context.update({
+            "object": message_object,
+            "photo": random.choice(Photo.objects.all())
+        })
 
-def services(request):
-    return render(request, 'services.html')
-
-
-def contact(request):
-    if request.method == "GET":
-        form = ContactForm()
-    else:
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data["name"]
-            email = form.cleaned_data["email"]
-            subject = form.cleaned_data["subject"]
-            message = form.cleaned_data["message"]
-
-            print(name, email, subject, message)
-            return redirect("contact_sent")
-
-    return render(request, 'contact.html', {"form": form})
+        return context
 
 
-def contact_sent(request):
-    return render(request, 'email_sent.html')
+class ServicesView(TemplateView):
+    template_name = 'services.html'
 
 
-def about(request):
-    return render(request, 'about.html')
+class ContactView(FormView):
+    template_name = "contact.html"
+    form_class = ContactForm
+    success_url = reverse_lazy("contact_sent")
+
+    def form_valid(self, form):
+        name = form.data["name"]
+        email = form.data["email"]
+        subject = form.data["subject"]
+        message = form.data["message"]
+
+        print(name, email, subject, message)
+        return super().form_valid(form)
+
+
+class ContactSentView(TemplateView):
+    template_name = 'email_sent.html'
+
+
+class AboutView(TemplateView):
+    template_name = 'about.html'
