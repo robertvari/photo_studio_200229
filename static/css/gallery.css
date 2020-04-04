@@ -29,11 +29,18 @@
     background-size: cover;
     overflow: hidden;
     position: relative;
+    filter: grayscale(100%);
 }
 
 .thumbnail_content_layout{
     opacity: 0;
 }
+
+.thumbnail_item:hover {
+    filter: grayscale(0%);
+    transition: filter 0.5s;
+}
+
 
 .thumbnail_item:hover .thumbnail_content_layout{
     opacity: 1;

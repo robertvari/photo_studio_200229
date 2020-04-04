@@ -1,5 +1,5 @@
 a{
-    color: #c72d66;
+    color: #afafaf;
     text-decoration: none;
 }
 
@@ -11,7 +11,7 @@ a:hover{
 .menu {
     position: fixed;
     width: 100%;
-    background-color: #203c58;
+    background-color: #563d7c;
     padding: 10px;
     display: flex;
     justify-content: space-between;
