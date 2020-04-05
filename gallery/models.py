@@ -6,22 +6,28 @@ from PIL import Image
 
 
 class Category(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField("Kategória név", max_length=200)
+
+    class Meta:
+        verbose_name_plural = "Kategóriák"
 
     def __str__(self):
         return self.title
 
 
 class Photo(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField("Cím", max_length=200)
 
     slug = models.SlugField(max_length=200, blank=True)
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
-    image = models.ImageField(upload_to="media")
-    comment = models.TextField()
+    image = models.ImageField("Kép", upload_to="media")
+    comment = models.TextField("Üzenet")
     uploaded = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "Fotók"
 
     def save(self, *args, **kwargs):
         # if photo is being replaced
