@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    <div class="category_menu">
+    <div class="category_menu" id="category_menu">
         {% for category in categories %}
             <a href="/gallery/?category={{ category.title }}" class="{% if request.GET.category == category.title %}active{% endif %}">{{ category }}</a>
         {% endfor %}
