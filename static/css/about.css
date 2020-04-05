@@ -1,0 +1,23 @@
+.about_layout{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 300px auto;
+}
+
+.about_layout img {
+    width: 100%;
+    align-self: flex-start;
+    border-radius: 10px;
+}
+
+.article{
+    text-align: justify;
+}
+
+.f14 {
+    font-size: 14px;
+}
+
+.f12 {
+    font-size: 12px;
+}

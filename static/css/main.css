@@ -3,6 +3,8 @@
 @import "gallery.css";
 @import "photo_details.css";
 @import "contact.css";
+@import "about.css";
+@import "services.css";
 
 
 *{
@@ -12,11 +14,17 @@
 }
 
 body{
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: #424446;
     font-family: 'Spartan';
 }
 
+hr {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    margin: 10px 30px;
+}
+
 .content_box{
-    padding-top: 51px;
+    padding-top: 55px;
 }

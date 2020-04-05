@@ -1,8 +1,8 @@
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, ListView
 import random
 
-from .models import HomeMessage
+from .models import HomeMessage, About, Services
 from gallery.models import Photo
 
 
@@ -27,8 +27,10 @@ class HomeView(TemplateView):
         return context
 
 
-class ServicesView(TemplateView):
-    template_name = 'services.html'
+class ServicesView(ListView):
+    model = Services
+    template_name = "services.html"
+    context_object_name = "services"
 
 
 class ContactView(FormView):
@@ -52,3 +54,14 @@ class ContactSentView(TemplateView):
 
 class AboutView(TemplateView):
     template_name = 'about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AboutView, self).get_context_data()
+
+        about_object = About.objects.all()
+
+        context.update(
+            {"about": about_object[0] if about_object else None}
+        )
+
+        return context

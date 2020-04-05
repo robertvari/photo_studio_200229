@@ -3,6 +3,20 @@
 {% block title%}About{% endblock title%}
 
 {% block body %}
-    <h1>About page</h1>
+    <div class="home_container">
+        <div class="center_text">
+
+            <div class="about_layout">
+                <img src={{about.image.url}} alt="">
+                <div>
+                    <h1>{{about.name}}</h1>
+                    <p class="f14">Phone: {{about.phone}}</p>
+                    <hr>
+                    <p class="article">{{about.message | safe}}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
 {% endblock body %}
 

@@ -2,17 +2,16 @@
     height: 100vh;
     background-position: center;
     background-size: cover;
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
-    background-image: radial-gradient(ellipse farthest-corner at 45px 45px, rgba(50, 50, 50, 0.8) 0%, rgba(80, 80, 80, 0.2) );
-
+    /*-webkit-filter: grayscale(100%);*/
+    /*filter: grayscale(100%);*/
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .center_text{
-    background-color: rgba(88, 88, 88, 0.65);
+    background-color: rgba(48, 80, 113, 0.65);
     width: 100%;
     padding: 100px;
+    color: white;
 }
