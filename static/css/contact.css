@@ -9,12 +9,10 @@
 }
 
 .contact_container form{
-    border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 10px;
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    padding: 20px;
 }
 
 input, textarea {
@@ -23,7 +21,6 @@ input, textarea {
     border: none;
     border-radius: 5px;
     padding: 5px;
-    color: white;
     outline: none;
     font-size: 16px;
     font-family: 'Spartan';
@@ -43,7 +40,6 @@ button {
     background-color: transparent;
     font-family: 'Spartan';
     font-size: 16px;
-    color: white;
     border: none;
     cursor: pointer;
     padding: 10px;

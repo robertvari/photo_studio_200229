@@ -19,6 +19,11 @@ a:hover{
     z-index: 10;
 }
 
+.mobil_menu {
+    color: white;
+    display: none;
+}
+
 .logo{
     font-size: 25px;
 }
